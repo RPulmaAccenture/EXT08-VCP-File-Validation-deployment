@@ -1,0 +1,39 @@
+The following are the steps to deploy the object EXT08:
+
+
+1.Command to upload UNIX prog
+
+Move the XXNBTYEXT08.prog to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/bin and go to this path then execute the command.
+
+dos2unix XXNBTYEXT08.prog
+chmod 777 XXNBTYEXT08.prog
+ln -s /u01/oracle/apps/apps_st/appl/fnd/12.0.0/bin/fndcpesr XXNBTYEXT08
+
+
+2.Command to upload packages.
+
+Move the XXNBTY_VCP_LEGACY_FILE_PKG.pks to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql and execute the command.
+NOTE: You may use apps user and apps password. 
+
+sqlplus -s USERNAME/PASSWORD
+
+@/u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql/XXNBTY_VCP_LEGACY_FILE_PKG.pks
+
+Move the XXNBTY_VCP_LEGACY_FILE_PKG.pkb to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql and execute the command.
+NOTE: You may use apps user and apps password. 
+
+sqlplus -s USERNAME/PASSWORD
+
+@/u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql/XXNBTY_VCP_LEGACY_FILE_PKG.pkb
+
+
+3.Command to upload FND FILES
+NOTE: Please make sure to update the password. thanks!
+
+Move the LDT files to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/import and execute the command.
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpprog.lct XXNBTY_EXT08_CP_a.ldt CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpprog.lct XXNBTY_EXT08_CP_b.ldt CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpreqg.lct XXNBTY_EXT08_RG.ldt CUSTOM_MODE=FORCE
