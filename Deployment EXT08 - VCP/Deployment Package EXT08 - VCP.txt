@@ -37,3 +37,10 @@ FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpprog.lct XXNBTY_E
 FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpprog.lct XXNBTY_EXT08_CP_b.ldt CUSTOM_MODE=FORCE
 
 FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpreqg.lct XXNBTY_EXT08_RG.ldt CUSTOM_MODE=FORCE
+
+4. Move the XXNBTYVCPSENDEMAIL.prog in the /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/bin and execute the command below. 
+
+dos2unix XXNBTYVCPSENDEMAIL.prog
+
+chmod 777 XXNBTYVCPSENDEMAIL.prog 
+
